@@ -1,0 +1,6 @@
+header {
+    display: flex;
+    flex-direction: row;
+    gap: 3.5vw;
+    font-size: 3vh;
+}
