@@ -1,6 +1,7 @@
 import React from 'react';
+import NumberIncreaser from './NumberIncreaser';
 
-const ProductCard = ({ product }) => {
+const ProductCard = ({ product, onProductAction }) => {
     const cardStyle = {
         boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)',
         borderRadius: '8px',
@@ -39,16 +40,24 @@ const ProductCard = ({ product }) => {
         if (text.length <= maxLength) return text;
         return text.slice(0, maxLength - 3) + '...';  // subtract 3 for the '...'
     };
+
     // Dynamically create the container style for each product
     const containerStyle = {
         ...containerBaseStyle,
         backgroundImage: `url(${product.imageURL})`
     };
 
+    const handleAction = (productName, actionType) => {
+        console.log(`Action: ${actionType} was called on product: ${productName}`);
+        onProductAction(product.id, actionType);  // Notify parent about the action and product id
+    };
+
+
     return (
         <div style={cardStyle}>
             <div style={containerStyle}></div>
-            <div style={nameStyle}>{truncateText(product.name, 60)}</div>
+            <div style={nameStyle}>{truncateText(product.name, 40)}</div>
+            <NumberIncreaser productName={product.name} onAction={handleAction} />
         </div>
     );
 };

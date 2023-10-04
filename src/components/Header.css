@@ -4,3 +4,12 @@ header {
     gap: 3.5vw;
     font-size: 3vh;
 }
+
+header a {
+    color: white;
+    text-decoration: none; /* Optional: Removes the underline from links */
+}
+
+header a:hover {
+    color: rgb(168, 170, 192); /* Optional: Slight color change on hover */
+}
