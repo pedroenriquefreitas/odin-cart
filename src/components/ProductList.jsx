@@ -8,10 +8,8 @@ const ProductList = () => {
     const divStyle = {
         display: 'flex',
         flexWrap: 'wrap',
-        justifyContent: 'space-between', // This ensures even spacing between the product cards
-        width: '70vw',
-        maxWidth: '100%',
-        margin: '0 auto' // This centers the container
+        justifyContent: 'space-between',
+        gap: '20px',
     };
 
     useEffect(() => {
